@@ -8,7 +8,7 @@
   --text-color: white;
   --bg-url: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
-  --surface-color: rgba(255, 255, 255, 0.0);
+  --surface-color: rgba(255, 255, 255, 0);
   --surface-color-hover: rgba(255, 255, 255, 0.02);
   --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-bg-url: url(./assets/moon-stars.svg);
@@ -59,7 +59,7 @@ body * {
   margin-top: 8px;
 }
 
-/* switch */
+/* switch button */
 #switch {
   position: relative;
   width: 64px;
@@ -78,11 +78,16 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+  transition: outline 0.2s;
+  animation: deslizar-fora 0.2s;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: deslizar-dentro 0.2s forwards;
 }
 
 #switch span {
@@ -123,6 +128,7 @@ ul li a:hover {
   background: var(--surface-color-hover);
 }
 
+/* redes sociais */
 #social-media {
   display: flex;
   justify-content: center;
@@ -148,6 +154,7 @@ ul li a:hover {
   padding: 16px;
 }
 
+/* rodapé */
 footer {
   padding: 24px 0;
   text-align: center;
@@ -155,6 +162,7 @@ footer {
   font-size: 14px;
 }
 
+/* responsividade */
 @media (min-width: 700px) {
   :root {
     --bg-url: url(./assets/bg-desktop.jpg);
@@ -163,5 +171,25 @@ footer {
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
   }
-  
+}
+
+/* animações */
+@keyframes deslizar-dentro {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes deslizar-fora {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0;
+  }
 }
